@@ -10,23 +10,20 @@ const schema = buildSchema(`
   type Query {
     hello: String
     allPersons: [Person!]! 
-    person: String
   }
-  type Person {
+  type Person{
     firstName: String
     lastName: String
     email: String
     password: String
-    CollegeId: String
+    collegeId: String
   }
 `);
 
 // The root provides a resolver function for each API endpoint
 const root = {
-  hello: () => {
-    return "Hello world!";
-  },
-  allPersons: () => Person[0],
+  hello: () => "Hello world!",
+  allPersons: () => Person,
 };
 
 const app = express();
