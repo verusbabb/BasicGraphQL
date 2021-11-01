@@ -1,29 +1,17 @@
 const express = require("express");
 const { graphqlHTTP } = require("express-graphql");
 const { buildSchema } = require("graphql");
-const Person = require("./data/students.json");
-
-console.log(Person[0]);
 
 // Construct a schema, using GraphQL schema language
 const schema = buildSchema(`
   type Query {
-    hello: String
-    allPersons: [Person!]! 
-  }
-  type Person{
-    firstName: String
-    lastName: String
-    email: String
-    password: String
-    collegeId: String
+    message: String
   }
 `);
 
 // The root provides a resolver function for each API endpoint
 const root = {
-  hello: () => "Hello world!",
-  allPersons: () => Person,
+  message: () => "Hello world!",
 };
 
 const app = express();
