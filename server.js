@@ -1,11 +1,23 @@
 const express = require("express");
 const { graphqlHTTP } = require("express-graphql");
 const { buildSchema } = require("graphql");
+const Person = require("./data/students.json");
+
+console.log(Person[0]);
 
 // Construct a schema, using GraphQL schema language
 const schema = buildSchema(`
   type Query {
     hello: String
+    allPersons: [Person!]! 
+    person: String
+  }
+  type Person {
+    firstName: String
+    lastName: String
+    email: String
+    password: String
+    CollegeId: String
   }
 `);
 
@@ -14,6 +26,7 @@ const root = {
   hello: () => {
     return "Hello world!";
   },
+  allPersons: () => Person[0],
 };
 
 const app = express();

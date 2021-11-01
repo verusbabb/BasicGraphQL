@@ -1,19 +1,24 @@
 type Query {
   test: String
+    allStudent {
+    name
+}
 }
 
-type Students {
+type Student {
   id: String
   firstName: String
   lastName: String
   email: String
   password: String
   collegeId: String
+  school: College
 }
 
-type Colleges {
+type College {
   id: String
   name: String
   location: String
   rating: Float
+  students: [Student]
 }
