@@ -1,0 +1,19 @@
+type Query {
+  test: String
+}
+
+type Students {
+  id: String
+  firstName: String
+  lastName: String
+  email: String
+  password: String
+  collegeId: String
+}
+
+type Colleges {
+  id: String
+  name: String
+  location: String
+  rating: Float
+}
